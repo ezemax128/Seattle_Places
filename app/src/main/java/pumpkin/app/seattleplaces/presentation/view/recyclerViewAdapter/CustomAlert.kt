@@ -1,9 +1,8 @@
-package pumpkin.app.seattleplaces.presentation.ui.recyclerViewAdapter
+package pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter
 
 import android.app.AlertDialog
 import android.content.Context
 import android.view.View
-import android.widget.Button
 import com.airbnb.lottie.LottieAnimationView
 import pumpkin.app.seattleplaces.R
 

@@ -1,4 +1,4 @@
-package pumpkin.app.seattleplaces.presentation.ui
+package pumpkin.app.seattleplaces.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

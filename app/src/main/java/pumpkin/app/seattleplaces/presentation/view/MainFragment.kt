@@ -1,4 +1,4 @@
-package pumpkin.app.seattleplaces.presentation.ui
+package pumpkin.app.seattleplaces.presentation.view
 
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Color
@@ -18,11 +18,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pumpkin.app.seattleplaces.R
 import pumpkin.app.seattleplaces.data.DataSource
-import pumpkin.app.seattleplaces.data.model.Resourse
+import pumpkin.app.seattleplaces.presentation.model.Resourse
 import pumpkin.app.seattleplaces.data.repository.RepositoryImpl
 import pumpkin.app.seattleplaces.databinding.FragmentMainBinding
-import pumpkin.app.seattleplaces.presentation.ui.recyclerViewAdapter.CustomAlert
-import pumpkin.app.seattleplaces.presentation.ui.recyclerViewAdapter.RecyclerAdapter
+import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.CustomAlert
+import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.RecyclerAdapter
 import pumpkin.app.seattleplaces.presentation.viewModel.FactoryViewModel
 import pumpkin.app.seattleplaces.presentation.viewModel.MainViewModel
 

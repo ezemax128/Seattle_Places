@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeattlePlaces">
         <activity
-            android:name=".presentation.ui.SplashScreen"
+            android:name=".presentation.view.SplashScreen"
             android:exported="true"
             android:theme="@style/splash">
             <intent-filter>
@@ -27,7 +27,7 @@
             android:value="AIzaSyDyA_o_HrG216puwjlNjS69ZbRFgaFPYMo" />
 
         <activity
-            android:name=".presentation.ui.MainActivity"
+            android:name=".presentation.view.MainActivity"
             android:exported="false">
 
         </activity>

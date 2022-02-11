@@ -1,7 +1,7 @@
 package pumpkin.app.seattleplaces.data.repository
 
-import pumpkin.app.seattleplaces.data.model.Place
-import pumpkin.app.seattleplaces.data.model.Resourse
+import pumpkin.app.seattleplaces.presentation.model.Place
+import pumpkin.app.seattleplaces.presentation.model.Resourse
 import retrofit2.Response
 
 interface Repository {

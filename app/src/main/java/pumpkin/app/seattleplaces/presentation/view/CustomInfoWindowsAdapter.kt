@@ -1,11 +1,9 @@
-package pumpkin.app.seattleplaces.presentation.ui
+package pumpkin.app.seattleplaces.presentation.view
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
-import coil.load
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import pumpkin.app.seattleplaces.R
