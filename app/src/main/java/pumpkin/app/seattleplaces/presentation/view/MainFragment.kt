@@ -21,7 +21,6 @@ import pumpkin.app.seattleplaces.data.DataSource
 import pumpkin.app.seattleplaces.presentation.model.Resourse
 import pumpkin.app.seattleplaces.data.repository.RepositoryImpl
 import pumpkin.app.seattleplaces.databinding.FragmentMainBinding
-import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.CustomAlert
 import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.RecyclerAdapter
 import pumpkin.app.seattleplaces.presentation.viewModel.FactoryViewModel
 import pumpkin.app.seattleplaces.presentation.viewModel.MainViewModel

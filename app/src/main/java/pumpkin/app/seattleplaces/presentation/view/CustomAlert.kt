@@ -1,4 +1,4 @@
-package pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter
+package pumpkin.app.seattleplaces.presentation.view
 
 import android.app.AlertDialog
 import android.content.Context
