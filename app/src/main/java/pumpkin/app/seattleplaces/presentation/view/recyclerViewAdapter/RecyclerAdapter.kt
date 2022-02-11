@@ -13,7 +13,6 @@ class RecyclerAdapter(
 ) : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        listPlaces.forEach { println(it) }
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false)
         )

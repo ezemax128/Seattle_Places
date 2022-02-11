@@ -43,7 +43,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         //take the control of BackPressed
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            //poner el cartel para salir de la app
             val viewToAlert = layoutInflater.inflate(R.layout.alert, null)
             val alert = CustomAlert.createAlert(requireContext(), viewToAlert)
             alert!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

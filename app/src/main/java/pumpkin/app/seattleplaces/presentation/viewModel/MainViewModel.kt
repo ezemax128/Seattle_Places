@@ -18,7 +18,7 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
 
     //init the list with a default value
     init {
-        setPlaceToFind("coffe")
+        setPlaceToFind("coffee")
     }
 
     //use the Coroutine Scope to call suspend function from repository
