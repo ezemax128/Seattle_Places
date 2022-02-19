@@ -1,7 +1,7 @@
 package pumpkin.app.seattleplaces.data
 
 
-import pumpkin.app.seattleplaces.presentation.model.Place
+import pumpkin.app.seattleplaces.data.model.Place
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header

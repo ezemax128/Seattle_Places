@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import pumpkin.app.seattleplaces.presentation.model.PlaceData
+import pumpkin.app.seattleplaces.data.model.PlaceData
 import pumpkin.app.seattleplaces.R
 
 class RecyclerAdapter(

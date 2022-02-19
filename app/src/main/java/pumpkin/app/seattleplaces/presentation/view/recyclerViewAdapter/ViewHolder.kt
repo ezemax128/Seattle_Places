@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import pumpkin.app.seattleplaces.presentation.model.PlaceData
+import pumpkin.app.seattleplaces.data.model.PlaceData
 import pumpkin.app.seattleplaces.databinding.ItemRowBinding
 
 

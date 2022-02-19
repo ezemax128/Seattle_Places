@@ -1,4 +1,4 @@
-package pumpkin.app.seattleplaces.presentation.model
+package pumpkin.app.seattleplaces.data.model
 
 import retrofit2.Response
 import java.lang.Exception

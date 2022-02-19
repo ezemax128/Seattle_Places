@@ -2,8 +2,8 @@ package pumpkin.app.seattleplaces.data.repository
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import pumpkin.app.seattleplaces.presentation.model.Place
-import pumpkin.app.seattleplaces.presentation.model.Resourse
+import pumpkin.app.seattleplaces.data.model.Place
+import pumpkin.app.seattleplaces.data.model.Resourse
 import pumpkin.app.seattleplaces.data.DataSource
 import retrofit2.Response
 

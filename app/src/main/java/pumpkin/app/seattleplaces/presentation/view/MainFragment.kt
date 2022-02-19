@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pumpkin.app.seattleplaces.R
 import pumpkin.app.seattleplaces.data.DataSource
-import pumpkin.app.seattleplaces.presentation.model.Resourse
+import pumpkin.app.seattleplaces.data.model.Resourse
 import pumpkin.app.seattleplaces.data.repository.RepositoryImpl
 import pumpkin.app.seattleplaces.databinding.FragmentMainBinding
 import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.RecyclerAdapter

@@ -1,4 +1,4 @@
-package pumpkin.app.seattleplaces.presentation.model
+package pumpkin.app.seattleplaces.data.model
 
 import com.google.gson.annotations.SerializedName
 

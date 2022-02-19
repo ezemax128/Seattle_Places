@@ -2,7 +2,7 @@ package pumpkin.app.seattleplaces.presentation.viewModel
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
-import pumpkin.app.seattleplaces.presentation.model.Resourse
+import pumpkin.app.seattleplaces.data.model.Resourse
 import pumpkin.app.seattleplaces.data.repository.Repository
 import java.lang.Exception
 
