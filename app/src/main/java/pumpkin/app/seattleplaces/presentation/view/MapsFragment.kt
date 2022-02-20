@@ -66,6 +66,7 @@ class MapsFragment : Fragment(R.layout.fragment_maps) {
         val navController = findNavController()
         val appConfiguration = AppBarConfiguration(navController.graph)
         toolbar.setupWithNavController(navController, appConfiguration)
+        toolbar.title = "Map of Seattle"
 
     }
 

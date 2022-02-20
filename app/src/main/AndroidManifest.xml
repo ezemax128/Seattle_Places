@@ -28,6 +28,7 @@
 
         <activity
             android:name=".presentation.view.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="false">
 
         </activity>

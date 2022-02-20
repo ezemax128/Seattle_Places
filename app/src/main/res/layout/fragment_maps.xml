@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_weight="1"
-        app:title="Map of Seattle"
-        app:titleTextColor="@color/white"
-        android:elevation="10dp"
         android:background="#1A237E"
+        android:elevation="10dp"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/toolbar_white_custom_theme" />
+        android:theme="@style/toolbar_white_custom_theme"
+        app:title="Map of Seattle"
+        app:titleTextColor="@color/white" />
 
     <fragment
         android:id="@+id/map"

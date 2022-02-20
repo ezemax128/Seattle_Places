@@ -16,7 +16,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="toolbar_white_custom_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="toolbar_white_custom_theme" parent="@style/Theme.SeattlePlaces">
         <item name="colorControlNormal">@color/white</item>
     </style>
 
