@@ -17,3 +17,4 @@
 * Google Maps
 * FourSquare Api V3
 * Clean Arquitecture
+* Dagger Hilt
