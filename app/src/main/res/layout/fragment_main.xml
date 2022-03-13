@@ -28,13 +28,16 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_gravity="end"
+            android:backgroundTint="#F1EAEA"
             android:elevation="10dp"
             android:inputType="textAutoComplete"
             android:maxWidth="200dp"
             app:closeIcon="@android:drawable/ic_input_delete"
             app:iconifiedByDefault="true"
+            app:queryBackground="@drawable/background_round"
             app:queryHint="Search Places"
-            app:searchIcon="@android:drawable/ic_menu_search" />
+            app:searchIcon="@android:drawable/ic_menu_search"
+            app:submitBackground="?android:attr/actionModeWebSearchDrawable" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

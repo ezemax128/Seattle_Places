@@ -3,10 +3,10 @@ package pumpkin.app.seattleplaces.presentation.view
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import pumpkin.app.seattleplaces.R
+import pumpkin.app.seattleplaces.databinding.CustomInfoWindowsBinding
 
 //This class represent the custom Windows inside the map
 class CustomInfoWindowsAdapter(
@@ -17,16 +17,15 @@ class CustomInfoWindowsAdapter(
     private val address: String
 ) : GoogleMap.InfoWindowAdapter {
 
-    override fun getInfoContents(p0: Marker): View? {
+    override fun getInfoContents(marker: Marker): View? {
         val customIW = LayoutInflater.from(context).inflate(R.layout.custom_info_windows, null)
-        customIW.findViewById<TextView>(R.id.nameIW).text = name
-        customIW.findViewById<TextView>(R.id.categoryIW).text = category
-        customIW.findViewById<TextView>(R.id.addressIW).text = address
-        customIW.findViewById<TextView>(R.id.distanceIW).text = distance
+        val binding = CustomInfoWindowsBinding.bind(customIW)
+        binding.nameIW.text = name
+        binding.categoryIW.text = category
+        binding.addressIW.text = address
+        binding.distanceIW.text = distance
         return customIW
     }
 
-    override fun getInfoWindow(p0: Marker): View? {
-        return null
-    }
+    override fun getInfoWindow(marker: Marker): View? = null
 }

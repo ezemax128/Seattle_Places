@@ -1,8 +1,10 @@
 package pumpkin.app.seattleplaces.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class PlaceData(
     @SerializedName("fsq_id")
     val id: String,
@@ -17,4 +19,4 @@ data class PlaceData(
     @SerializedName("geocodes")
     val geocodes: Geocodes
 
-)
+):Parcelable

@@ -4,13 +4,17 @@ package pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import pumpkin.app.seattleplaces.R
 import pumpkin.app.seattleplaces.data.model.PlaceData
 import pumpkin.app.seattleplaces.databinding.ItemRowBinding
 
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private val binding: ItemRowBinding = ItemRowBinding.bind(itemView)
 
     @SuppressLint("SetTextI18n")
     fun bind(item: PlaceData, clickDetector: (bundle: Bundle) -> Unit) {
@@ -19,18 +23,12 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ICON_SIZE = 120
         val icon: String = iconPrefix + ICON_SIZE + iconSuffix
         val neighborhood: String = when (item.address._neighborhood.isNullOrEmpty()) {
-            true -> {
-                ""
-            }
-            false -> {
-                item.address._neighborhood[0]
-            }
+            true -> { "No Data" }
+            false -> { item.address._neighborhood[0] }
         }
-        //binding the item row layout
-        val binding: ItemRowBinding = ItemRowBinding.bind(itemView)
 
         //assign values at the different views
-        binding.namePlace.text = item.name
+        binding.namesPlace.text = item.name
         binding.categoryPlace.text = item.category[0].name
         binding.iconPlace.load(icon)
         binding.neighborhoodPlace.text =
@@ -39,14 +37,7 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         itemView.setOnClickListener {
             val bundle = Bundle()
-            bundle.let {
-                it.putDouble("lat", item.geocodes.geoMain.latitude)
-                it.putDouble("long", item.geocodes.geoMain.longitude)
-                it.putString("name", item.name)
-                it.putString("category", item.category[0].name)
-                it.putString("distance", item.distance.toString())
-                it.putString("address", "Address: ${item.address._address}")
-            }
+            bundle.putParcelable("place", item)
             clickDetector(bundle)
         }
 

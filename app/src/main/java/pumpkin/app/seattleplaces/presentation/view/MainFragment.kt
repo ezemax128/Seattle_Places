@@ -1,5 +1,6 @@
 package pumpkin.app.seattleplaces.presentation.view
 
+import android.annotation.SuppressLint
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -16,31 +17,36 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import pumpkin.app.seattleplaces.R
-import pumpkin.app.seattleplaces.data.DataSource
+import pumpkin.app.seattleplaces.data.model.PlaceData
 import pumpkin.app.seattleplaces.data.model.Resourse
-import pumpkin.app.seattleplaces.data.repository.RepositoryImpl
 import pumpkin.app.seattleplaces.databinding.FragmentMainBinding
 import pumpkin.app.seattleplaces.presentation.view.recyclerViewAdapter.RecyclerAdapter
-import pumpkin.app.seattleplaces.presentation.viewModel.FactoryViewModel
 import pumpkin.app.seattleplaces.presentation.viewModel.MainViewModel
+import java.lang.Exception
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
     private lateinit var recycler: RecyclerView
-
-    //instantiate the ViewModel
-    private val viewModel by viewModels<MainViewModel> {
-        FactoryViewModel(RepositoryImpl(DataSource()))
-    }
+    private val viewModel by viewModels<MainViewModel>()
 
 
+    @SuppressLint("InflateParams")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMainBinding.bind(view)
         binding.lottieLoading.setAnimation(R.raw.loading)
+        setUpBackButton()
+        setUpRecycler()
+        observerMethod()
+        search()
+    }
 
+
+    private fun setUpBackButton() {
         //take the control of BackPressed
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             val viewToAlert = layoutInflater.inflate(R.layout.alert, null)
@@ -51,9 +57,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 .setOnClickListener { requireActivity().finishAffinity() }
             viewToAlert.findViewById<Button>(R.id.cancelBtn).setOnClickListener { alert.dismiss() }
         }
-        setUpRecycler()
-        observerMethod()
-        search()
     }
 
     //function to catch click user into recyclerView
@@ -73,28 +76,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         )
     }
 
-    //observe method
-    private fun observerMethod() {
-        viewModel.getPlaceSearched.observe(viewLifecycleOwner) { response ->
-            when (response) {
-                is Resourse.Loading -> {
-                    binding.loadingScreen.visibility = View.VISIBLE
-                }
-
-                is Resourse.Success -> {
-                    binding.loadingScreen.visibility = View.GONE
-                    val ordinaryList = response.data.body()!!.meta
-                    val adapter = RecyclerAdapter(ordinaryList) { clickDetector(it) }
-                    recycler.adapter = adapter
-                }
-                is Resourse.Failure -> {
-                    binding.loadingScreen.visibility = View.GONE
-                    Toast.makeText(requireContext(), "${response.e}", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
-
     //this method send the query that the user want to search
     private fun search() {
         val searchView = binding.searchView
@@ -102,8 +83,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
             //to search a final query
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                viewModel.setPlaceToFind(p0.toString())
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.setPlaceToFind(query.toString())
                 //Hide the keyBoard when user submit data
                 val hideKeyBoard =
                     requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
@@ -112,11 +93,37 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
 
             //to search while the user is typing
-            override fun onQueryTextChange(p0: String?): Boolean {
-                viewModel.setPlaceToFind(p0.toString())
+            override fun onQueryTextChange(query: String?): Boolean {
+                viewModel.setPlaceToFind(query.toString())
                 return true
             }
-
         })
     }
+
+    //observe method
+    private fun observerMethod() {
+        viewModel.getPlaceSearched.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resourse.Loading -> { loading() }
+                is Resourse.Success -> { success(response.data.body()!!.meta) }
+                is Resourse.Failure -> { failure(response.e) }
+            }
+        }
+    }
+
+    private fun loading() {
+        binding.loadingScreen.visibility = View.VISIBLE
+    }
+
+    private fun success(ordinaryList: List<PlaceData>) {
+        binding.loadingScreen.visibility = View.GONE
+        val adapter = RecyclerAdapter(ordinaryList) { clickDetector(it) }
+        recycler.adapter = adapter
+    }
+
+    private fun failure(e:Exception) {
+        binding.loadingScreen.visibility = View.GONE
+        Snackbar.make(requireView(), "$e", Snackbar.LENGTH_LONG).show()
+    }
+
 }
